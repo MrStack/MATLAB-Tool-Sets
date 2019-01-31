@@ -8,7 +8,7 @@ classdef Tuple
             ArgumentsCount = size(InputArgumentsList,1);            
             for i = 1:ArgumentsCount - 1
                 if ~isequaln(size(InputArgumentsList{i}),size(InputArgumentsList{i+1}))
-                    Ex = MException('DataStructure:Tuple','Dimension of input arguments does not equal.');
+                    Ex = MException('DataStructure:Tuple:Dimension','Dimension of input arguments does not equal.');
                     throw(Ex);
                     %error('Dimension of input arguments does not equal.');
                 end
@@ -28,7 +28,7 @@ classdef Tuple
                 if iscell(Vector)
                     obj.CellCountainer = Vector;
                 else
-                    Ex = MException('DataStructure:Tuple','Only cell array is supported.');
+                    Ex = MException('DataStructure:Tuple:Cell','Only cell array is supported.');
                     throw(Ex);
                     %error('Only cell array is supported.');
                 end

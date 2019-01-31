@@ -8,17 +8,9 @@ verifyEqual(testCase,aTuple.CellCountainer,{});
 end
 
 function testArg1(testCase)
-try
-    aTuple = Tuple({[1,3,5]});
-catch ExT
-    verifyError(testCase,ExT,'DataStructure:Tuple');
-end
+verifyError(testCase,@()Tuple([1,3,5]),'DataStructure:Tuple:Cell');
 end
 
 function testArgn(testCase)
-try
-    aTuple = Tuple([1,2,3],'123');
-catch ExT
-    verifyError(testCase,ExT,'DataStructure:Tuple');
-end
+verifyError(testCase,@()Tuple([1,2,3],'123','4321'),'DataStructure:Tuple:Dimension');
 end
